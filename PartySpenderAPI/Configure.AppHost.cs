@@ -1,6 +1,9 @@
 using Funq;
 using ServiceStack;
 using PartySpenderAPI.ServiceInterface;
+using ServiceStack.Data;
+using ServiceStack.OrmLite;
+using PartySpenderAPI.ServiceModel.Types;
 
 [assembly: HostingStartup(typeof(PartySpenderAPI.AppHost))]
 
@@ -13,7 +16,7 @@ public class AppHost : AppHostBase, IHostingStartup
             // Configure ASP.NET Core IOC Dependencies
         });
 
-    public AppHost() : base("PartySpenderAPI", typeof(MyServices).Assembly) {}
+    public AppHost() : base("PartySpenderAPI", typeof(PartiesService).Assembly) {}
 
     public override void Configure(Container container)
     {
@@ -21,5 +24,10 @@ public class AppHost : AppHostBase, IHostingStartup
         SetConfig(new HostConfig {
             UseSameSiteCookies = true,
         });
+
+        container.Register<IDbConnectionFactory>(c =>
+            new OrmLiteConnectionFactory("PartySpender.sqlite", SqliteDialect.Provider));
+        using var db = container.Resolve<IDbConnectionFactory>().Open();
+        db.DropAndCreateTable<Party>();
     }
 }
