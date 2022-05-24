@@ -1,4 +1,4 @@
-﻿using PartySpenderAPI.ServiceModel;
+﻿using PartySpenderAPI.ServiceModel.Parties;
 using PartySpenderAPI.ServiceModel.Types;
 using ServiceStack;
 using ServiceStack.OrmLite;

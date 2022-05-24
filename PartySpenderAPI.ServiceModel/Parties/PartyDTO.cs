@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PartySpenderAPI.ServiceModel;
+namespace PartySpenderAPI.ServiceModel.Parties;
 public class PartyDTO
 {
     public int Id { get; set; }

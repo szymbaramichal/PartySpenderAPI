@@ -2,19 +2,19 @@
 using System;
 using System.Collections.Generic;
 
-namespace PartySpenderAPI.ServiceModel;
+namespace PartySpenderAPI.ServiceModel.Parties;
 
 [Route("/parties/getAll", "GET")]
-public class GetAllParties : IReturn<List<PartyDTO>> {}
+public class GetAllParties : IReturn<List<PartyDTO>> { }
 
 
 [Route("/parties/getParty/{Id}", "GET")]
-public class GetParty : IReturn<PartyDTO> 
+public class GetParty : IReturn<PartyDTO>
 {
     public int Id { get; set; }
 }
 
-[Route("/parties/create","POST")]
+[Route("/parties/create", "POST")]
 public class CreateParty : IReturn<PartyDTO>
 {
     public string Name { get; set; }

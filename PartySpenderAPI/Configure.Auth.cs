@@ -37,8 +37,6 @@ namespace PartySpenderAPI
                     new IAuthProvider[] {
                         new CredentialsAuthProvider(appSettings),     /* Sign In with Username / Password credentials */
                         new FacebookAuthProvider(appSettings),        /* Create App https://developers.facebook.com/apps */
-                        new GoogleAuthProvider(appSettings),          /* Create App https://console.developers.google.com/apis/credentials */
-                        new MicrosoftGraphAuthProvider(appSettings),  /* Create App https://apps.dev.microsoft.com */
                     }));
 
                 appHost.Plugins.Add(new RegistrationFeature()); //Enable /register Service

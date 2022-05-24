@@ -18,6 +18,7 @@
     <PackageReference Include="ServiceStack" Version="6.*" />
     <PackageReference Include="ServiceStack.OrmLite" Version="6.1.0" />
     <PackageReference Include="ServiceStack.OrmLite.Sqlite" Version="5.*" />
+    <PackageReference Include="ServiceStack.Server" Version="6.1.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -24,10 +24,5 @@ public class AppHost : AppHostBase, IHostingStartup
         SetConfig(new HostConfig {
             UseSameSiteCookies = true,
         });
-
-        container.Register<IDbConnectionFactory>(c =>
-            new OrmLiteConnectionFactory("PartySpender.sqlite", SqliteDialect.Provider));
-        using var db = container.Resolve<IDbConnectionFactory>().Open();
-        db.DropAndCreateTable<Party>();
     }
 }
